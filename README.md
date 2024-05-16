@@ -21,3 +21,11 @@ Commit Wizard is a python tool designed to automate the process of generating me
     ```sh
     pip install openai
     ```
+
+3. **Configure API Key and Model**:
+    Modify the `config.py` file under the `src` directory to add your OpenAI API key:
+    ```python
+    OPENAI_API_KEY = 'your_api_key'
+    MODEL = 'gpt-3.5-turbo'
+    ```
+    You can also specify the model as desired.
