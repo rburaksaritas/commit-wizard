@@ -38,3 +38,15 @@ The tool can be used directly from the command line. Here are the available opti
 
 - **`repo_path`**: Path to the local Git repository.
 - **`--push`**: (Optional) Branch name to push the changes. If not specified, the program will stage the changes and generate seperate commits for each file with generated commit messages, but it will not push them to the remote repository.
+
+### Examples
+
+1. **Generate commit messages and commit changes**:
+    ```sh
+    python3 main.py /path/to/repo
+    ```
+
+2. **Generate commit messages, commit changes, and push to a branch**:
+    ```sh
+    python3 main.py /path/to/repo --push main
+    ```
