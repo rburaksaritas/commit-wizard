@@ -29,3 +29,12 @@ Commit Wizard is a python tool designed to automate the process of generating me
     MODEL = 'gpt-3.5-turbo'
     ```
     You can also specify the model as desired.
+
+## Usage
+
+### Command Line Interface
+
+The tool can be used directly from the command line. Here are the available options:
+
+- **`repo_path`**: Path to the local Git repository.
+- **`--push`**: (Optional) Branch name to push the changes. If not specified, the program will stage the changes and generate seperate commits for each file with generated commit messages, but it will not push them to the remote repository.
