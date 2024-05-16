@@ -1,3 +1,6 @@
+GREEN = "\033[92m"
+RESET = "\033[0m"
+
 def generate_commits(repo_path, api_key):
     modified_files = get_modified_files(repo_path)
 
