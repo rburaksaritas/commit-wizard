@@ -1,4 +1,5 @@
 from openai import OpenAI
+from config import OPENAI_API_KEY, MODEL
 
 def generate_commit_message(api_key, diff_content):
     """Generate a commit message using OpenAI's GPT-3.5 API."""
@@ -11,7 +12,7 @@ def generate_commit_message(api_key, diff_content):
     )
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model=MODEL,
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": prompt}
