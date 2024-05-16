@@ -13,6 +13,7 @@ def generate_commits(repo_path):
         
         commit_message_response = generate_commit_message(diff_content)
         title, message = parse_commit_message(commit_message_response)
+        
         if title and message:
             print(f"{GREEN}----Commit Generated----{RESET}", "\n", title, "\n\n", message, "\n", f"{GREEN}-----------------------{RESET}")
             git_add(repo_path, file_path)
