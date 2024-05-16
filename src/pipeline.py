@@ -3,7 +3,7 @@ from ai_integration import generate_commit_message, parse_commit_message
 GREEN = "\033[92m"
 RESET = "\033[0m"
 
-def generate_commits(repo_path, api_key):
+def generate_commits(repo_path):
     modified_files = get_modified_files(repo_path)
 
     for file_path in modified_files:
@@ -11,7 +11,7 @@ def generate_commits(repo_path, api_key):
         new_content = get_file_content(repo_path, file_path, commit='HEAD')
         diff_content = get_file_diff(repo_path, file_path)
         
-        commit_message_response = generate_commit_message(api_key, diff_content)
+        commit_message_response = generate_commit_message(diff_content)
         title, message = parse_commit_message(commit_message_response)
         if title and message:
             print(f"{GREEN}----Commit Generated----{RESET}", "\n", title, "\n\n", message, "\n", f"{GREEN}-----------------------{RESET}")
