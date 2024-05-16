@@ -58,3 +58,12 @@ The tool can be used directly from the command line. Here are the available opti
 - **`src/ai_integration.py`**: Contains functions for interacting with OpenAI's GPT-3.5 API to generate and parse commit messages.
 - **`src/config.py`**: Configuration file for specifying the OpenAI API key and model.
 - **`src/pipeline.py`**: Contains the pipeline functionality that detects changes, generates commit messages and commit the changes for each file.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
+
+## Acknowledgements
+
+- [OpenAI](https://openai.com/) for providing the GPT-3.5 API.
+- [Git](https://git-scm.com/) for the powerful version control system.
