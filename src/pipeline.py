@@ -8,6 +8,10 @@ def generate_commits(repo_path, api_key):
         
         commit_message_response = generate_commit_message(api_key, diff_content)
         title, message = parse_commit_message(commit_message_response)
-        print("Commit Generated", "\n\n", title, "\n\n", message)
-        git_add(repo_path, file_path)
-        git_commit(repo_path, title, message)
+        if title and message:
+            print(f"{GREEN}----Commit Generated----{RESET}", "\n", title, "\n\n", message, "\n", f"{GREEN}-----------------------{RESET}")
+            git_add(repo_path, file_path)
+            git_commit(repo_path, title, message)
+        else:
+            print("No commit message generated. Please try again.")
+            exit(1)
