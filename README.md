@@ -12,8 +12,8 @@ Commit Wizard is a python tool designed to automate the process of generating me
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/commit-wizard-ai.git
-    cd commit-wizard-ai
+    git clone https://github.com/rburaksaritas/commit-wizard.git
+    cd commit-wizard
     ```
 
 2. **Install dependencies**:
