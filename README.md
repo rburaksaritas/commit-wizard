@@ -50,3 +50,11 @@ The tool can be used directly from the command line. Here are the available opti
     ```sh
     python3 main.py /path/to/repo --push main
     ```
+
+## Project Structure
+
+- **`main.py`**: Entry point of the application. Handles command-line arguments and orchestrates the commit process.
+- **`src/git_operations.py`**: Contains functions for interacting with Git, such as getting modified files, adding files, and committing changes.
+- **`src/ai_integration.py`**: Contains functions for interacting with OpenAI's GPT-3.5 API to generate and parse commit messages.
+- **`src/config.py`**: Configuration file for specifying the OpenAI API key and model.
+- **`src/pipeline.py`**: Contains the pipeline functionality that detects changes, generates commit messages and commit the changes for each file.
