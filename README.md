@@ -87,8 +87,8 @@ The tool can be used directly from the command line. Here are the available opti
     ----Commit Generated---- 
     Update background colors in style.css 
 
-    - Updated background color in the body selector from #f4f4f5 to #f4f4f4.
-    - Updated background color in the button selector from #3498db to #3498dd. 
+    - Updated background color in the body selector from f4f4f5 to f4f4f4.
+    - Updated background color in the button selector from 3498db to 3498dd. 
     -----------------------
     [main e1fdf7d] Update background colors in style.css
     1 file changed, 2 insertions(+), 2 deletions(-)
