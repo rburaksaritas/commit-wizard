@@ -79,8 +79,8 @@ The tool can be used directly from the command line. Here are the available opti
     ----Commit Generated---- 
     Update hour dropdown selection and adjust loop iterations 
 
-    - Added a function `updateHourDropdown()` to format and update selections in the hour dropdown.
-    - Updated the loop iteration in `runFinder()` from iterating 5 times to 4 times for better performance. 
+    - Added a function updateHourDropdown() to format and update selections in the hour dropdown.
+    - Updated the loop iteration in runFinder() from iterating 5 times to 4 times for better performance. 
     -----------------------
     [main e566a41] Update hour dropdown selection and adjust loop iterations
     1 file changed, 2 insertions(+), 1 deletion(-)
