@@ -4,7 +4,7 @@ def get_modified_files(repo_path):
     """Get a list of modified files in the git repository."""
     result = subprocess.run(['git', '-C', repo_path, 'status', '--porcelain'], capture_output=True, text=True)
     lines = result.stdout.strip().split('\n')
-    modified_files = [line.split()[1] for line in lines]
+    modified_files = [line.split()[1] for line in lines if len(line.split()) > 1]
     return modified_files
 
 def get_file_content(repo_path, file_path, commit='HEAD'):
