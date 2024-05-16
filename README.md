@@ -51,6 +51,28 @@ The tool can be used directly from the command line. Here are the available opti
     python3 main.py /path/to/repo --push main
     ```
 
+3. **Example Process used for adding sections to this README**:
+    ```sh
+    $ python3 main.py ./commit-wizard --push main
+    ----Commit Generated---- 
+    Added Contributing Guidelines and Acknowledgements 
+
+    - Added a "Contributing" section to the README file encouraging contributions through forking and creating pull requests.
+    - Added an "Acknowledgements" section with links to OpenAI and Git websites to acknowledge their contributions. 
+    -----------------------
+    [main def1e2c] Added Contributing Guidelines and Acknowledgements
+    1 file changed, 9 insertions(+)
+    Enumerating objects: 5, done.
+    Counting objects: 100% (5/5), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 681 bytes | 681.00 KiB/s, done.
+    Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+    remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+    To github.com:rburaksaritas/commit-wizard.git
+    72275f9..def1e2c  main -> main
+   ```
+
 ## Project Structure
 
 - **`main.py`**: Entry point of the application. Handles command-line arguments and orchestrates the commit process.
