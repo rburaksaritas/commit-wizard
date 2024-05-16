@@ -73,6 +73,36 @@ The tool can be used directly from the command line. Here are the available opti
     72275f9..def1e2c  main -> main
    ```
 
+4. **Example of multiple file modifications**:
+    ```sh
+    $ python3 main.py burak/tcdd-bilet-bulucu-web --push main
+    ----Commit Generated---- 
+    Update hour dropdown selection and adjust loop iterations 
+
+    - Added a function `updateHourDropdown()` to format and update selections in the hour dropdown.
+    - Updated the loop iteration in `runFinder()` from iterating 5 times to 4 times for better performance. 
+    -----------------------
+    [main e566a41] Update hour dropdown selection and adjust loop iterations
+    1 file changed, 2 insertions(+), 1 deletion(-)
+    ----Commit Generated---- 
+    Update background colors in style.css 
+
+    - Updated background color in the body selector from #f4f4f5 to #f4f4f4.
+    - Updated background color in the button selector from #3498db to #3498dd. 
+    -----------------------
+    [main e1fdf7d] Update background colors in style.css
+    1 file changed, 2 insertions(+), 2 deletions(-)
+    Enumerating objects: 12, done.
+    Counting objects: 100% (12/12), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (9/9), done.
+    Writing objects: 100% (9/9), 1.17 KiB | 1.17 MiB/s, done.
+    Total 9 (delta 5), reused 0 (delta 0), pack-reused 0
+    remote: Resolving deltas: 100% (5/5), completed with 3 local objects.
+    To github.com:rburaksaritas/tcdd-bilet-bulucu-web.git
+    884f102..e1fdf7d  main -> main
+    ```
+
 ## Project Structure
 
 - **`main.py`**: Entry point of the application. Handles command-line arguments and orchestrates the commit process.
