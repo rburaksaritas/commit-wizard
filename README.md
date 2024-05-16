@@ -7,3 +7,17 @@ Commit Wizard is a python tool designed to automate the process of generating me
 - **Automatic Commit Message Generation**: Uses OpenAI's GPT-3.5 to generate descriptive commit messages based on the diffs of modified files.
 - **Git Integration**: Seamlessly integrates with your Git workflow to add, commit, and push changes with generated messages.
 - **Configurable API Key and Model**: Specify your OpenAI API key and desired model in `config.py` file.
+
+## Installation
+
+1. **Clone the repository**:
+    ```sh
+    git clone https://github.com/yourusername/commit-wizard-ai.git
+    cd commit-wizard-ai
+    ```
+
+2. **Install dependencies**:
+    Ensure you have `openai` and other required libraries installed. You can install them using pip:
+    ```sh
+    pip install openai
+    ```
