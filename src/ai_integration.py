@@ -1,5 +1,5 @@
 from openai import OpenAI
-from config import OPENAI_API_KEY, MODEL
+from .config import OPENAI_API_KEY, MODEL
 
 def generate_commit_message(diff_content):
     """Generate a commit message using OpenAI's GPT-3.5 API."""
