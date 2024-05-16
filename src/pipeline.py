@@ -1,3 +1,5 @@
+from ai_integration import generate_commit_message, parse_commit_message
+
 GREEN = "\033[92m"
 RESET = "\033[0m"
 
