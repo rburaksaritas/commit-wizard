@@ -1,6 +1,6 @@
 import argparse
 from src.pipeline import generate_commits
-from src.utils import git_push
+from src.git_operations import git_push
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate commit messages for modified files in a git repository.")
