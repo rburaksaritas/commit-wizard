@@ -24,9 +24,10 @@ def generate_commits(repo_path, specific_files=None, ignored_files=None):
         print("No modified files to process.")
         return
 
-    print(f"Generating commits for files: %s" % modified_files)
+    print(f"{GREEN}Generating commits for files: %s{RESET}" % modified_files)
 
     for file_path in modified_files:
+        print(f"{GREEN}Generating commit for file: {file_path}{RESET}")
         old_content = get_file_content(repo_path, file_path, commit='HEAD^')
         new_content = get_file_content(repo_path, file_path, commit='HEAD')
         diff_content = get_file_diff(repo_path, file_path)
