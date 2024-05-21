@@ -3,9 +3,9 @@ from .git_operations import get_modified_files, get_file_content, get_file_diff,
 GREEN = "\033[92m"
 RESET = "\033[0m"
 
-def generate_commits(repo_path, specific_file=None):
-    if specific_file:
-        modified_files = [specific_file] if specific_file in get_modified_files(repo_path) else []
+def generate_commits(repo_path, specific_files=None):
+    if specific_files:
+        modified_files = [file for file in specific_files if file in get_modified_files(repo_path)]
     else:
         modified_files = get_modified_files(repo_path)
 
