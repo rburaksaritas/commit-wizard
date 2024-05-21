@@ -5,7 +5,7 @@ from src.git_operations import git_push
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate commit messages for modified files in a git repository.")
     parser.add_argument("repo_path", help="Path to the git repository")
-    parser.add_argument("--file", help="Specific file to generate commit for")
+    parser.add_argument("--file", nargs='+', help="Specific files to generate commits for")
     parser.add_argument("--push", help="Branch name to push the changes")
 
     args = parser.parse_args()
