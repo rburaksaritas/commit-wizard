@@ -37,6 +37,11 @@ Commit Wizard is a python tool designed to automate the process of generating me
 The tool can be used directly from the command line. Here are the available options:
 
 - **`repo_path`**: Path to the local Git repository.
+
+- **`--file`**: (Optional) Specify one or more files to generate commits for. If absent, the program checks for all modified files.
+
+- **`--ignore`**: (Optional) Specify one or more files or directories to ignore during commit message generation. `src/config.py` is ignored to prevent API key exposure.
+
 - **`--push`**: (Optional) Branch name to push the changes. If not specified, the program will stage the changes and generate seperate commits for each file with generated commit messages, but it will not push them to the remote repository.
 
 ### Examples
@@ -49,6 +54,16 @@ The tool can be used directly from the command line. Here are the available opti
 2. **Generate commit messages, commit changes, and push to a branch**:
     ```sh
     python3 main.py /path/to/repo --push main
+    ```
+
+3. **Specify files to generate commits for**:
+    ```sh
+    python3 main.py /path/to/repo --file src/pipeline.py main.py
+    ```
+
+4. **Ignore specific files or directories**:
+    ```sh
+    python3 main.py /path/to/repo --ignore src/config.py src/__pycache__
     ```
 
 3. **Example Process used for adding sections to this README**:
