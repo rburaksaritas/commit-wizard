@@ -1,3 +1,4 @@
+import os
 from .ai_integration import generate_commit_message, parse_commit_message
 from .git_operations import get_modified_files, get_file_content, get_file_diff, git_add, git_commit
 GREEN = "\033[92m"
@@ -10,8 +11,14 @@ def generate_commits(repo_path, specific_files=None, ignored_files=None):
     if specific_files:
         modified_files = [file for file in specific_files if file in modified_files]
     
+    def is_ignored(file):
+        for ignore in ignored_files:
+            if file == ignore or file.startswith(ignore + os.sep):
+                return True
+        return False
+    
     if ignored_files:
-        modified_files = [file for file in modified_files if file not in ignored_files]
+        modified_files = [file for file in modified_files if not is_ignored(file)]
 
     if not modified_files:
         print("No modified files to process.")
