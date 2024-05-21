@@ -12,7 +12,7 @@ def generate_commit_message(diff_content, is_new_file=False, is_deleted_file=Fal
         "4. If a file is deleted, indicate this clearly in the title and body of the commit message.\n"
         "5. Provide a short, descriptive title summarizing the changes.\n"
         "6. For the detailed message, mention each change accurately and concisely.\n"
-        "7. Title should be labeled with the prefix 'Title:' and commit message should be labeled with the prefix 'Commit Message:' exactly for your response to be parsed correctly.\n\n"
+        "7. Title should be labeled with the prefix 'Title:' and commit message should be labeled with the prefix 'Commit Message:' exactly for your response to be parsed correctly. Never add styling to your response.\n\n"
     )
 
     if is_new_file:
