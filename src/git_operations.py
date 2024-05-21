@@ -20,6 +20,9 @@ def get_file_diff(repo_path, file_path):
 def git_add(repo_path, file_path):
     subprocess.run(['git', '-C', repo_path, 'add', file_path])
 
+def git_rm(repo_path, file_path):
+    subprocess.run(['git', '-C', repo_path, 'rm', file_path])
+    
 def git_commit(repo_path, title, message):
     full_commit_message = f"{title}\n\n{message}"
     subprocess.run(['git', '-C', repo_path, 'commit', '-m', full_commit_message])
