@@ -30,8 +30,8 @@ def generate_commits(repo_path, specific_files=None, ignored_files=None):
         old_content = get_file_content(repo_path, file_path, commit='HEAD^')
         new_content = get_file_content(repo_path, file_path, commit='HEAD')
         diff_content = get_file_diff(repo_path, file_path)
-
-        is_new_file = not old_content.strip() and new_content.strip()
+        print(diff_content)
+        is_new_file = not old_content.strip()
 
         commit_message_response = generate_commit_message(diff_content, is_new_file=is_new_file)
         print(commit_message_response)
