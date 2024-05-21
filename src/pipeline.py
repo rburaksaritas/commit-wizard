@@ -6,6 +6,7 @@ RESET = "\033[0m"
 
 def generate_commits(repo_path, specific_files=None, ignored_files=None):
     ignored_files = ignored_files or []
+    ignored_files.append('src/config.py')
     modified_files = get_modified_files(repo_path)
 
     if specific_files:
