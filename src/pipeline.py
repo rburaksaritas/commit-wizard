@@ -3,11 +3,15 @@ from .git_operations import get_modified_files, get_file_content, get_file_diff,
 GREEN = "\033[92m"
 RESET = "\033[0m"
 
-def generate_commits(repo_path, specific_files=None):
+def generate_commits(repo_path, specific_files=None, ignored_files=None):
+    ignored_files = ignored_files or []
+    modified_files = get_modified_files(repo_path)
+
     if specific_files:
-        modified_files = [file for file in specific_files if file in get_modified_files(repo_path)]
-    else:
-        modified_files = get_modified_files(repo_path)
+        modified_files = [file for file in specific_files if file in modified_files]
+    
+    if ignored_files:
+        modified_files = [file for file in modified_files if file not in ignored_files]
 
     if not modified_files:
         print("No modified files to process.")
