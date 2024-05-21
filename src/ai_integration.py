@@ -16,7 +16,7 @@ def generate_commit_message(diff_content, is_new_file=False):
 
     if is_new_file:
         additional_instructions = (
-            "The current file is newly created. Your commit message should reflect this, emphasizing the creation of the file and a brief summary of its content if present.\n\n"
+            "The current file is newly created. Your commit message should reflect this, emphasizing the creation of the file with it's name and a brief summary of its content if present.\n\n"
         )
     else:
         additional_instructions = ""
