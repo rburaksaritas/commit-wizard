@@ -63,7 +63,7 @@ def generate_commits(repo_path, specific_files=None, ignored_files=None):
         title, message = parse_commit_message(commit_message_response)
 
         if title and message:
-            print(title, "\n\n", message, "\n", f"{GREEN}Commit message generated successfully.{RESET}")
+            print(f"{title}\n\n{message}\n{GREEN}Commit message generated successfully.{RESET}")
             if is_deleted_file:
                 git_rm(repo_path, file_path)
             else:
