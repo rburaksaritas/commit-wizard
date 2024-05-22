@@ -34,8 +34,6 @@ def generate_commit_message(diff_content, is_new_file=False, is_deleted_file=Fal
         "Commit Message:\n\n"
     )
 
-    print(prompt)
-
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.chat.completions.create(
         model=MODEL,
