@@ -59,7 +59,6 @@ def generate_commits(repo_path, specific_files=None, ignored_files=None):
             is_new_file=is_new_file,
             is_deleted_file=is_deleted_file
         )
-        print(commit_message_response)
         title, message = parse_commit_message(commit_message_response)
 
         if title and message:
