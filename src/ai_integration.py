@@ -17,11 +17,11 @@ def generate_commit_message(diff_content, is_new_file=False, is_deleted_file=Fal
 
     if is_new_file:
         additional_instructions = (
-            "The current file is newly created. Your commit message should reflect this, emphasizing the creation of the file with its name and a brief summary of its content if present.\n\n"
+            "The current file is newly created. Your commit message should reflect this, emphasizing the created file with its name and a brief summary of its content if present.\n\n"
         )
     elif is_deleted_file:
         additional_instructions = (
-            "The current file is deleted. Your commit message should reflect this, emphasizing the deletion of the file with its name.\n\n"
+            "The current file has been deleted. Your commit message should reflect this, emphasizing the deleted file with its name and brief summary of its contant if present.\n\n"
         )
     else:
         additional_instructions = ""
@@ -33,6 +33,8 @@ def generate_commit_message(diff_content, is_new_file=False, is_deleted_file=Fal
         f"{diff_content}\n\n"
         "Commit Message:\n\n"
     )
+
+    print(prompt)
 
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.chat.completions.create(
