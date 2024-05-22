@@ -1,6 +1,7 @@
 import os
+import difflib
 from .ai_integration import generate_commit_message, parse_commit_message
-from .git_operations import get_modified_files, get_file_content, get_file_diff, git_add, git_commit, git_rm
+from .git_operations import get_modified_files, get_file_content, get_file_diff, git_add, git_commit, git_rm, file_exists_in_commit
 GREEN = "\033[92m"
 RESET = "\033[0m"
 
@@ -29,15 +30,35 @@ def generate_commits(repo_path, specific_files=None, ignored_files=None):
 
     for file_path in modified_files:
         print(f"{GREEN}Generating commit for file: {file_path}{RESET}")
-        old_content = get_file_content(repo_path, file_path, commit='HEAD^')
-        new_content = get_file_content(repo_path, file_path, commit='HEAD')
+        file_existed_in_previous_commit = file_exists_in_commit(repo_path, file_path, 'HEAD')
+        old_content = get_file_content(repo_path, file_path, commit='HEAD') if file_existed_in_previous_commit else ''
+        new_content = get_file_content(repo_path, file_path, commit='WORKING')
+        diff_summary = '\n'.join(difflib.unified_diff(
+            old_content.splitlines(),
+            new_content.splitlines(),
+            fromfile='old_content',
+            tofile='new_content',
+            lineterm=''
+        ))
         diff_content = get_file_diff(repo_path, file_path)
-        print(diff_content)
+        summary = (
+                    f"diff summary: {diff_summary}\n"
+                    f"diff content: {get_file_diff(repo_path, file_path)}"
+        )
         
-        is_new_file = not old_content.strip() and new_content.strip()
-        is_deleted_file = not new_content.strip() and old_content.strip()
+        is_new_file = not file_existed_in_previous_commit and os.path.exists(os.path.join(repo_path, file_path)) and not diff_content.split()
+        is_deleted_file = file_existed_in_previous_commit and not os.path.exists(os.path.join(repo_path, file_path))
 
-        commit_message_response = generate_commit_message(diff_content, is_new_file=is_new_file, is_deleted_file=is_deleted_file)
+        if is_new_file:
+            summary += f"The file {file_path} is newly created."
+        elif is_deleted_file:
+            summary += f"The file {file_path} was deleted."
+
+        commit_message_response = generate_commit_message(
+            summary,
+            is_new_file=is_new_file,
+            is_deleted_file=is_deleted_file
+        )
         print(commit_message_response)
         title, message = parse_commit_message(commit_message_response)
 
