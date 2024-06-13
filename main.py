@@ -1,5 +1,5 @@
 import argparse
-from src.pipeline import generate_commits
+from src.pipeline import add_new_folders, generate_commits
 from src.git_operations import git_push
 
 GREEN = "\033[92m"
@@ -14,6 +14,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     
+    add_new_folders(args.repo_path)
     generate_commits(args.repo_path, args.file, args.ignore)
 
     if args.push:
