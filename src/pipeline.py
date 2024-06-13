@@ -9,15 +9,16 @@ RESET = "\033[0m"
 def add_new_folders(repo_path):
     """Detect and add new folders to the git staging area."""
     modified_files = get_modified_files(repo_path)
-    new_folders = set()
+    new_folders = []
     for file_path in modified_files:
         if file_path.endswith('/'):
-            new_folders.add(file_path)
+            new_folders.append(file_path)
 
-    for folder in new_folders:
-        git_add(repo_path, folder)
-    
-    print(f"{GREEN}Added folders to git: %s{RESET}" % new_folders)
+    if len(new_folders) > 0:
+        for folder in new_folders:
+            git_add(repo_path, folder)
+        
+        print(f"{GREEN}Added folders to git: %s{RESET}" % new_folders)
 
 def generate_commits(repo_path, specific_files=None, ignored_files=None):
     ignored_files = ignored_files or []
