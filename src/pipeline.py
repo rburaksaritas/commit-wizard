@@ -21,6 +21,7 @@ def add_new_folders(repo_path):
         print(f"{GREEN}Added folders to git: %s{RESET}" % new_folders)
 
 def generate_commits(repo_path, specific_files=None, ignored_files=None):
+    """Generate commits for modified files."""
     ignored_files = ignored_files or []
     ignored_files.append('src/config.py')
     modified_files = get_modified_files(repo_path)
