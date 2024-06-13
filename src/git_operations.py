@@ -8,6 +8,17 @@ def get_modified_files(repo_path):
     modified_files = [line.split()[1] for line in lines if len(line.split()) > 1]
     return modified_files
 
+def add_new_folders(repo_path):
+    """Detect and add new folders to the git staging area."""
+    modified_files = get_modified_files(repo_path)
+    new_folders = set()
+    for file_path in modified_files:
+        if file_path.endswith('/'):
+            new_folders.add(file_path)
+
+    for folder in new_folders:
+        os.system(f"cd {repo_path} && git add {folder}")
+        
 def get_file_content(repo_path, file_path, commit='HEAD'):
     """Get the content of a file at a specific commit or in the working directory."""
     if commit == 'WORKING':
