@@ -7,14 +7,14 @@ GREEN = "\033[92m"
 RESET = "\033[0m"
 
 def add_new_folders(repo_path):
-    """Detect and add new folders to the git staging area."""
-    modified_files = get_modified_files(repo_path)
-    new_folders = []
-    for file_path in modified_files:
-        if file_path.endswith('/'):
-            new_folders.append(file_path)
-
-    if len(new_folders) > 0:
+    """Detect and add new folders to the git staging area, including nested folders."""
+    while True:
+        modified_files = get_modified_files(repo_path)
+        new_folders = [file_path for file_path in modified_files if file_path.endswith('/')]
+        
+        if not new_folders:
+            break
+        
         for folder in new_folders:
             git_add(repo_path, folder)
         
