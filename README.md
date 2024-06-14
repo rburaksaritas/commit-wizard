@@ -1,6 +1,6 @@
 # Commit Wizard
 
-Commit Wizard is a python tool designed to automate the process of generating meaningful and descriptive commit messages for your Git repository. Leveraging OpenAI's GPT-3.5 API, this tool analyzes the changes in your codebase and generates commit messages that accurately reflect the modifications made, ensuring your project history is clear and informative.
+Commit Wizard is an AI assisted Python tool designed to automate the process of generating meaningful and descriptive commit messages for your Git repository. Leveraging OpenAI's GPT-3.5 API, this tool analyzes the changes in your codebase and generates commit messages that accurately reflect the modifications made, ensuring your project history is clear and informative.
 
 ## Features
 
